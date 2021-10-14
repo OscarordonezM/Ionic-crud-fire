@@ -1,0 +1,7 @@
+{
+  "name": "crudBiblio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
