@@ -1,20 +1,49 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons>
+            <ion-back-button defaultHref="/login"></ion-back-button>
+            <ion-title class="ion-text-center">Referencias</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [routerLink]="['/add-post']">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-list lines="none">
+        <ion-item-sliding *ngFor="let post of posts">
+            <ion-item class="padding" sizeLg="6" sizeMd="6" size="12">
+                <ion-card>
+                    <ion-card-title>
+                        <h2>{{ post.title }}</h2>
+                    </ion-card-title>
+                    <ion-card-content>
+                        <p>{{ post.details }}</p>
+                    </ion-card-content>
+
+                    <!--<p>{{ post.type }}</p>
+                    <p>{{ post.eventMagazine }}</p>
+                    <p>{{ post.doi }}</p>-->
+                    <p>Año publicación: {{ post.anioPub }}</p>
+
+                </ion-card>
+            </ion-item>
+
+            <ion-item-options side="start">
+                <ion-item-option [routerLink]="['/edit-page/', post.id]">
+                    <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+
+            <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="deletePost(post.id)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 </ion-content>

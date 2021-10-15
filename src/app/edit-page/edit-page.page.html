@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons>
+            <ion-back-button defaultHref="/home"></ion-back-button>
+            <ion-title class="ion-text-center">Editar Referencia</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="floating">Titulo</ion-label>
+        <ion-input type="text" [(ngModel)]="post.title" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-textarea [(ngModel)]="post.details" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Tipo</ion-label>
+        <ion-textarea [(ngModel)]="post.type" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Evento revista</ion-label>
+        <ion-textarea [(ngModel)]="post.eventMagazine" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Codigo unico</ion-label>
+        <ion-textarea [(ngModel)]="post.doi" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Año publicacion</ion-label>
+        <ion-textarea [(ngModel)]="post.anioPub" required></ion-textarea>
+    </ion-item>
+    <ion-button class="ion-padding" color="primary" expand="full" (click)="updatePost(post)">Update</ion-button>
+</ion-content>
